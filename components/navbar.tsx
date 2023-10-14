@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Poppins } from "next/font/google";
+import { Nunito } from "next/font/google";
 import { Menu, Sparkles } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
@@ -9,8 +9,8 @@ import { ModeToggle } from "./mode-toggle";
 
 import { cn } from "@/lib/utils";
 
-const font = Poppins({
-    weight: "600",
+const font = Nunito({
+    weight: ["400", "700"],
     subsets: ["latin"]
 })
 
@@ -24,7 +24,7 @@ export const Navbar = () => {
                         "hidden md:block",
                         font.className
                     )}>
-                        companion.ai
+                        Companion. <span className="italic">by</span> <span className="font-bold">miti.</span>
                     </h1>
                 </Link>
             </div>
