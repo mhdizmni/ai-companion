@@ -22,7 +22,6 @@ export const Search = () => {
 
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         setValue(e.target.value)
-        console.log(e.target.value)
     }
 
     useEffect(() => {
