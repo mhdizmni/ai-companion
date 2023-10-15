@@ -6,6 +6,7 @@ import { Menu, Sparkles } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./mode-toggle";
+import { MobileSide } from "./mobile-side";
 
 import { cn } from "@/lib/utils";
 
@@ -16,9 +17,9 @@ const font = Nunito({
 
 export const Navbar = () => {
     return (
-        <div className="fixed z-50 w-full border-b flex items-center justify-between p-2">
+        <div className="fixed h-16 z-50 w-full border-b flex items-center justify-between p-2">
             <div className="flex items-center">
-                <Menu className="block md:hidden" />
+                <MobileSide />
                 <Link href="/">
                     <h1 className={cn(
                         "hidden md:block",
