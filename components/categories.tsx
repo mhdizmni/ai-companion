@@ -50,7 +50,7 @@ export const Categories = ({
               hover:opacity-75 
               transition
             `,
-              !category ? 'bg-primary/25' : 'bg-primary/10'
+              !category ? 'bg-black text-white dark:bg-white dark:text-black' : 'bg-primary/10'
             )}
           >
             All
@@ -73,7 +73,7 @@ export const Categories = ({
                 hover:opacity-75 
                 transition
               `,
-                item.id === category ? 'bg-primary/25' : 'bg-primary/10'
+                item.id === category ? 'bg-black text-white dark:bg-white dark:text-black' : 'bg-primary/10'
               )}
               key={item.id}
             >
