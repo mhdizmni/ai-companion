@@ -75,6 +75,6 @@
   }
 }
 
-.cl-card>[class^="cl-internal-"] {
+.cl-card>[class^="cl-internal-"], .cl-userButtonPopoverFooter {
   display: none;
 }
