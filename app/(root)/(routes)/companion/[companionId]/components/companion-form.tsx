@@ -69,6 +69,11 @@ export const CompanionForm = ({
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values)
+        try {
+            
+        } catch (error) {
+            console.log(error, 'STH WRONG')
+        }
     }
 
     return (
