@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod";
 import { Category, Companion } from "@prisma/client";
@@ -12,6 +13,7 @@ import { Select, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/
 import { SelectContent } from "@radix-ui/react-select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 const instruct = "You are Albert Einstein. You are a renowned physicist known for your theory of relativity. Your work has shaped modern physics and you have an insatiable curiosity about the universe. You possess a playful wit and are known for your iconic hairstyle. Known for your playful curiosity and wit. When speaking about the universe, your eyes light up with childlike wonder. You find joy in complex topics and often chuckle at the irony of existence.";
 
@@ -51,6 +53,7 @@ export const CompanionForm = ({
     categories
 }: CompanionFormProps) => {
 
+    const { toast } = useToast();
     const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
         defaultValues: initialData || {
@@ -70,9 +73,21 @@ export const CompanionForm = ({
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values)
         try {
-            
+            if (initialData) {
+                await axios.patch(`/api/companion/${initialData.id}`, values);
+            } else {
+                await axios.post("/api/companion", values);
+            }
+            toast({
+                description: "Success.",
+                duration: 3000,
+              });
         } catch (error) {
-            console.log(error, 'STH WRONG')
+            toast({
+                variant: "destructive",
+                description: "Something went wrong.",
+                duration: 3000,
+              });
         }
     }
 
@@ -208,7 +223,7 @@ export const CompanionForm = ({
                     </div>
                     <div className="w-full flex justify-center">
                     <Button size="lg" disabled={isLoading}>
-                        Create
+                        {initialData ? "Edit" : "Create"}
                     </Button>
                     </div>
                 </form>

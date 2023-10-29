@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
+import { Toaster } from "@/components/ui/toaster";
 
 const RootLayout = ({
     children
@@ -14,6 +15,7 @@ const RootLayout = ({
             </div>
             <main className="md:pl-20 pt-16 h-full">
                 {children}
+                <Toaster />
             </main>
         </div>
     );
