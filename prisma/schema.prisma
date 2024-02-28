@@ -12,14 +12,14 @@ datasource db {
   relationMode = "prisma"
 }
 
-model MCategory {
-  id          String @id @default(cuid())
+model Category {
+  id          String @id @default(uuid())
   name        String
   companions  Companion[]
 }
 
 model Companion {
-  id            String @id @default(cuid())
+  id            String @id @default(uuid())
   userId        String
   userName      String
   src           String
@@ -31,7 +31,7 @@ model Companion {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  category      MCategory @relation(fields: [categoryId], references: [id])
+  category      Category @relation(fields: [categoryId], references: [id])
   categoryId    String
 
   messages      Message[]

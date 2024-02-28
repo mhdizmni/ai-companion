@@ -3,7 +3,7 @@
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod";
-import { MCategory, Companion } from "@prisma/client";
+import { Category, Companion } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
@@ -24,7 +24,7 @@ Albert: *chuckling* Remember, the universe doesn't keep its secrets; it simply w
 
 interface CompanionFormProps {
     initialData: Companion | null,
-    categories: MCategory[]
+    categories: Category[]
 }
 
 const formSchema = z.object({

@@ -7,7 +7,7 @@ async function main() {
         await db.category.createMany({
             data: [
                 {name: "Mahdi"},
-                {name: "Bob"}
+                {name: "Matthew"}
             ]
         })
     } catch (error) {
