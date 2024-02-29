@@ -10,8 +10,8 @@ import { Toaster } from '@/components/ui/toaster'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Companion. by miti',
-  description: 'mitism. internship projects',
+  title: 'mitism - Companion Demo',
+  description: 'mitism portfolio',
 }
 
 export default function RootLayout({
