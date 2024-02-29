@@ -32,7 +32,7 @@ const Index = async ({
         },
       });
 
-    const categories = await prismadb.mCategory.findMany();
+    const categories = await prismadb.category.findMany();
     
     return (
         <div className="h-full p-4 space-y-2">
